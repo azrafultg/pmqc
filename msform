@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form MS</title>
+</head>
+<body>
+<table>
+    <tr><th>MSID</th><td onchange="fill()" id="msid" contenteditable="true"  width="100px"  ></td></tr>
+    <tr><th>email</th><td onchange="fill()" id="mail" contenteditable="true" width="100px"  ></td></tr>
+    <tr><th>type</th><td onchange="fill()" id="type" contenteditable="true"  width="100px"></td></tr>
+    <tr><th>note</th><td onchange="fill()" id="note" contenteditable="true"  width="100px" ></td></tr>
+
+</table>
+<button onclick="fill()">Fill</button> <br>
+<form action="https://prod-28.southeastasia.logic.azure.com:443/workflows/ca1ae5ae5f4248819ba82fc99f1f4a0a/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=mi99hFICdyxI0I3qig5LfmuQvhGJiBHGc_No9eUybUg" method="post">
+<div class="form-element">    <input name="isiname" id="isi" type="text" width="900px" height="200px"></div>
+
+
+    <button type="submit">submit</button>
+</form>
+
+
+
+<script>
+
+function  fill(){
+
+var xmsid = document.getElementById('msid').innerHTML;
+var xmail = document.getElementById('mail').innerHTML;
+var xtype = document.getElementById('type').innerHTML;
+var xnote = document.getElementById('note').innerHTML;
+var jsonnya = '{"msid":"'+ xmsid + '","mail":"'+ xmail + '","type":"'+ xtype + '","note":"'+ xnote + '"}' ;
+document.getElementById('isi').value =jsonnya
+
+
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>
